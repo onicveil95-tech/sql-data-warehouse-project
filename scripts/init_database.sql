@@ -1,28 +1,23 @@
 /*
 =============================================================
-Create Database
+Create Database and Schemas
 =============================================================
 Script Purpose:
-    This script creates the 'datawarehouse' database used by
-    the SQL Data Warehouse project.
+    This script creates the Bronze, Silver, and Gold databases
+    used to organize the data warehouse layers.
 
-    MySQL does not require separate schemas for the Bronze,
-    Silver, and Gold layers because a MySQL database is
-    equivalent to a schema.
+    In MySQL, databases and schemas are equivalent.
 
 WARNING:
-    Running the DROP DATABASE statement will permanently delete
-    the entire database and all data contained within it.
-
-    Do not run this script against a database containing data
-    you want to keep.
+    Running this script will permanently delete the Bronze,
+    Silver, and Gold databases if they already exist.
 =============================================================
 */
 
--- Drop and recreate the database
-DROP DATABASE IF EXISTS datawarehouse;
+DROP DATABASE IF EXISTS bronze;
+DROP DATABASE IF EXISTS silver;
+DROP DATABASE IF EXISTS gold;
 
-CREATE DATABASE datawarehouse;
-
--- Select the database
-USE datawarehouse;
+CREATE DATABASE bronze;
+CREATE DATABASE silver;
+CREATE DATABASE gold;
